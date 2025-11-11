@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: config-server
+  config:
+    import: optional:file:.env
 
   profiles:
     active: native, git
@@ -12,7 +14,7 @@ spring:
     config:
       server:
         native:
-          search-locations: 'file:///Users/yejin/Documents/herb/project-config'
+          search-locations: ${LOCAL_PATH}
         git:
           uri: https://github.com/PokeHerb/pokeherb
           default-label: main
